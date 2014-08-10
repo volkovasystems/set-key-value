@@ -86,7 +86,7 @@ var setKeyValue = function setKeyValue( key, value, collectionName, databaseName
 	].join( "" );
 	
 	//Create a connection using the mongo database url.
-	var connection = mongoose.connect( mongoDatabaseURL );
+	var connection = mongoose.createConnection( mongoDatabaseURL );
 		
 	//When connected, bind to cabinetkv.
 	connection.on( "connected",
@@ -123,4 +123,4 @@ var util = require( "util" );
 var cabinet = require( "cabinetkv" );
 var mongoose = require( "mongoose" );
 
-exports.setKeyValue = setKeyValue;
+module.exports = setKeyValue;
